@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero — Heurísticas de Nielsen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand">Evaluación UX<small>Tablero 2 · Heurísticas de Nielsen</small></div>
+        <nav>
+            <a href="index.html">Índice</a>
+            <a href="leyes-ux.html">Leyes UX</a>
+            <a href="heuristicas-nielsen.html" class="active">Heurísticas</a>
+        </nav>
+    </header>
+
+    <main class="wrap">
+        <div class="intro">
+            <h1>Heurísticas de Nielsen — Evaluación completa</h1>
+            <p class="lede">Producto evaluado: <strong>[completar]</strong>. Escala de severidad: 0 = no hay problema ·
+                1 = cosmético · 2 = prioridad media · 3 = prioridad alta · 4 = catástrofe de usabilidad. Las 10
+                heurísticas deben quedar cubiertas, sin excepción.</p>
+        </div>
+
+        <div class="stats" id="stats"></div>
+
+        <div class="filters" id="filters">
+            <button data-filter="all" class="active">Todas</button>
+            <button data-filter="0">Sev. 0</button>
+            <button data-filter="1">Sev. 1</button>
+            <button data-filter="2">Sev. 2</button>
+            <button data-filter="3">Sev. 3</button>
+            <button data-filter="4">Sev. 4</button>
+        </div>
+
+        <div class="entries" id="entries"></div>
+
+        <footer>Editá el array <code>heuristicas</code> en el script de esta página para cargar tu análisis real. La
+            severidad -1 se muestra como "pendiente".</footer>
+    </main>
+
+    <script>
+        // severidad: -1 (pendiente, sin evaluar aún), 0, 1, 2, 3 o 4
+        const heuristicas = [
+            {
+                nombre: "1. Visibilidad del estado del sistema", severidad: -1,
+                foco: "¿El sistema informa qué está pasando con feedback apropiado en tiempo razonable?",
+                img: null, analisis: ""
+            },
+            {
+                nombre: "2. Correspondencia entre el sistema y el mundo real", severidad: -1,
+                foco: "¿Usa el lenguaje y las metáforas del usuario, no jerga interna del sistema?",
+                img: null, analisis: ""
+            },
+            {
+                nombre: "3. Control y libertad del usuario", severidad: -1,
+                foco: "¿Existen salidas de emergencia claras (deshacer, cancelar, volver atrás)?",
+                img: null, analisis: ""
+            },
+            {
+                nombre: "4. Consistencia y estándares", severidad: -1,
+                foco: "¿Sigue las convenciones de la plataforma y es consistente internamente?",
+                img: null, analisis: ""
+            },
+            {
+                nombre: "5. Prevención de errores", severidad: -1,
+                foco: "¿El diseño evita que ocurran errores, más allá de mostrar buenos mensajes?",
+                img: null, analisis: ""
+            },
+            {
+                nombre: "6. Reconocer antes que recordar", severidad: -1,
+                foco: "¿Las opciones y acciones son visibles, sin exigir que el usuario recuerde información previa?",
+                img: null, analisis: ""
+            },
+            {
+                nombre: "7. Flexibilidad y eficiencia de uso", severidad: -1,
+                foco: "¿Hay atajos o personalización que aceleren el uso a usuarios expertos?",
+                img: null, analisis: ""
+            },
+            {
+                nombre: "8. Diseño estético y minimalista", severidad: -1,
+                foco: "¿Se evita información irrelevante o poco usada que compita con lo importante?",
+                img: null, analisis: ""
+            },
+            {
+                nombre: "9. Reconocer, diagnosticar y recuperarse de errores", severidad: -1,
+                foco: "¿Los mensajes de error son claros, en lenguaje llano, e indican cómo resolver el problema?",
+                img: null, analisis: ""
+            },
+            {
+                nombre: "10. Ayuda y documentación", severidad: -1,
+                foco: "¿La ayuda es fácil de encontrar, breve y orientada a la tarea concreta del usuario?",
+                img: null, analisis: ""
+            },
+        ];
+
+        const entriesEl = document.getElementById('entries');
+        const statsEl = document.getElementById('stats');
+        const sevLabel = s => s === -1 ? "Pendiente" : `Severidad ${s}`;
+
+        function render(filter = 'all') {
+            entriesEl.innerHTML = '';
+            heuristicas.forEach((h, i) => {
+                if (filter !== 'all' && String(h.severidad) !== filter) return;
+                const sevClass = h.severidad === -1 ? '' : `sev-${h.severidad}`;
+                const el = document.createElement('div');
+                el.className = 'entry';
+                el.innerHTML = `
+      <div class="index">${String(i + 1).padStart(2, '0')}</div>
+      <div class="body">
+        <div class="head">
+          <div>
+            <h2>${h.nombre}</h2>
+          </div>
+          <span class="sev ${sevClass}"><span class="dot"></span>${sevLabel(h.severidad)}</span>
+        </div>
+        <div class="question">${h.foco}</div>
+        <div class="evidence">
+          <div class="shot">${h.img ? `<img src="${h.img}" alt="Captura — ${h.nombre}">` : 'Captura pendiente<br>reemplazar en el array `heuristicas`'}</div>
+          <div class="analysis">
+            <label>Análisis</label>
+            <p class="${h.analisis ? '' : 'fill'}">${h.analisis || 'Completar: qué pasa, por qué cumple/rompe la heurística y qué impacto tiene en la persona usuaria.'}</p>
+          </div>
+        </div>
+      </div>`;
+                entriesEl.appendChild(el);
+            });
+        }
+
+        function renderStats() {
+            const total = heuristicas.length;
+            const evaluadas = heuristicas.filter(h => h.severidad !== -1).length;
+            const criticas = heuristicas.filter(h => h.severidad >= 3).length;
+            const promedio = evaluadas ? (heuristicas.filter(h => h.severidad !== -1).reduce((a, h) => a + h.severidad, 0) / evaluadas).toFixed(1) : "—";
+            statsEl.innerHTML = `
+    <div class="stat"><div class="num">${total}</div><div class="label">Heurísticas</div></div>
+    <div class="stat"><div class="num">${evaluadas}/${total}</div><div class="label">Evaluadas</div></div>
+    <div class="stat"><div class="num">${criticas}</div><div class="label">Severidad 3–4</div></div>
+    <div class="stat"><div class="num">${promedio}</div><div class="label">Severidad promedio</div></div>`;
+        }
+
+        document.getElementById('filters').addEventListener('click', (e) => {
+            if (e.target.tagName !== 'BUTTON') return;
+            document.querySelectorAll('#filters button').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            render(e.target.dataset.filter);
+        });
+
+        render();
+        renderStats();
+    </script>
+</body>
+
+</html>
