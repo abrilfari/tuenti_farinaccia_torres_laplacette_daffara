@@ -1,1 +1,56 @@
-<h1>hola</h1>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación UX — Índice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand">Evaluación UX<small>Producto en análisis · Digital House / San Andrés</small></div>
+    </header>
+
+    <main class="wrap">
+        <div class="intro">
+            <h1>Dos tableros, un mismo producto</h1>
+            <p class="lede">Auditoría de usabilidad basada en las 14 leyes UX y las 10 heurísticas de Nielsen. Reemplazá
+                los textos y capturas de marcador de posición por tu análisis real.</p>
+        </div>
+
+        <div class="entries" style="grid-template-columns:1fr 1fr; display:grid; gap:18px;">
+            <a href="leyes-ux.html" style="text-decoration:none; color:inherit;">
+                <div class="entry" style="grid-template-columns:1fr;">
+                    <div class="body">
+                        <div class="sub">Tablero 1</div>
+                        <h2>Leyes UX</h2>
+                        <p style="color:var(--ink-soft); font-size:.92rem; margin:8px 0 0;">14 leyes como checklist de
+                            navegación. Mínimo sugerido: 8 documentadas con evidencia real.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="heuristicas-nielsen.html" style="text-decoration:none; color:inherit;">
+                <div class="entry" style="grid-template-columns:1fr;">
+                    <div class="body">
+                        <div class="sub">Tablero 2</div>
+                        <h2>Heurísticas de Nielsen</h2>
+                        <p style="color:var(--ink-soft); font-size:.92rem; margin:8px 0 0;">Las 10 heurísticas
+                            completas, con severidad 0–4 según la escala de Nielsen.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <footer>
+            README.md tiene las instrucciones de deploy en GitHub + Vercel.
+        </footer>
+    </main>
+</body>
+
+</html>
