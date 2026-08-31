@@ -51,54 +51,54 @@
         // severidad: -1 (pendiente, sin evaluar aún), 0, 1, 2, 3 o 4
         const heuristicas = [
             {
-                nombre: "1. Visibilidad del estado del sistema", severidad: -1,
+                nombre: "1. Visibilidad del estado del sistema", severidad: 0,
                 foco: "¿El sistema informa qué está pasando con feedback apropiado en tiempo razonable?",
-                img: null, analisis: ""
+                img: null, analisis: "El gauge de gigas, el stepper de recarga automática y la confirmación con check son claros y siempre informan al usuario dónde está y qué pasó."
             },
             {
-                nombre: "2. Correspondencia entre el sistema y el mundo real", severidad: -1,
+                nombre: "2. Correspondencia entre el sistema y el mundo real", severidad: 2,
                 foco: "¿Usa el lenguaje y las metáforas del usuario, no jerga interna del sistema?",
-                img: null, analisis: ""
+                img: null, analisis: "Hola Tuenti en vez del nombre del usuario, y el Saldo $0,00 mostrado sin distinguir claramente que es independiente de los GB disponibles, puede generar confusión real. El usuario podría creer que se quedó sin servicio."
             },
             {
-                nombre: "3. Control y libertad del usuario", severidad: -1,
+                nombre: "3. Control y libertad del usuario", severidad: 0,
                 foco: "¿Existen salidas de emergencia claras (deshacer, cancelar, volver atrás)?",
-                img: null, analisis: ""
+                img: null, analisis: "Botones de volver consistentes, modal de roaming con X para cerrar, se puede abandonar una compra en cualquier paso."
             },
             {
-                nombre: "4. Consistencia y estándares", severidad: -1,
+                nombre: "4. Consistencia y estándares", severidad: 3,
                 foco: "¿Sigue las convenciones de la plataforma y es consistente internamente?",
-                img: null, analisis: ""
+                img: null, analisis: "Las secciones de Servicios, Combos y Soporte/Foro cambian a una interfaz tipo WebView con header, tipografía y navegación totalmente distintos al resto de la app. Esto rompe el sistema de diseño y puede hacer sentir al usuario que salió de la app."
             },
             {
-                nombre: "5. Prevención de errores", severidad: -1,
+                nombre: "5. Prevención de errores", severidad: 0,
                 foco: "¿El diseño evita que ocurran errores, más allá de mostrar buenos mensajes?",
-                img: null, analisis: ""
+                img: null, analisis: "Textos de ayuda bajo cada campo del formulario de pago, campos obligatorios marcados, checkbox de T&C requerido, rangos válidos mostrados de antemano. Aunque en el proceso de onboarding presenta errores"
             },
             {
-                nombre: "6. Reconocer antes que recordar", severidad: -1,
+                nombre: "6. Reconocer antes que recordar", severidad: 2,
                 foco: "¿Las opciones y acciones son visibles, sin exigir que el usuario recuerde información previa?",
-                img: null, analisis: ""
+                img: null, analisis: "Para un nuevo usuario puede ser confunso y rustrante nfrentarse a la app. Probablementese verá obligado a tener que recordar como se usa la app, en lugar de seguir el flujo, porque la app es poco intuitiva."
             },
             {
-                nombre: "7. Flexibilidad y eficiencia de uso", severidad: -1,
+                nombre: "7. Flexibilidad y eficiencia de uso", severidad: 2,
                 foco: "¿Hay atajos o personalización que aceleren el uso a usuarios expertos?",
-                img: null, analisis: ""
+                img: null, analisis: "Existe la recarga automática como acelerador, pero no hay atajos, favoritos ni funciones para usuarios avanzados/recurrentes. No es grave, pero es una oportunidad perdida de eficiencia."
             },
             {
-                nombre: "8. Diseño estético y minimalista", severidad: -1,
+                nombre: "8. Diseño estético y minimalista", severidad: 1,
                 foco: "¿Se evita información irrelevante o poco usada que compita con lo importante?",
-                img: null, analisis: ""
+                img: null, analisis: "El Home nativo y los flujos de compra son limpios, pero las pantallas WebView (Combos, Foro) se ven más densas y menos cuidadas que el resto — afecta la percepción visual, no la funcionalidad."
             },
             {
-                nombre: "9. Reconocer, diagnosticar y recuperarse de errores", severidad: -1,
+                nombre: "9. Reconocer, diagnosticar y recuperarse de errores", severidad: 2,
                 foco: "¿Los mensajes de error son claros, en lenguaje llano, e indican cómo resolver el problema?",
-                img: null, analisis: ""
+                img: null, analisis: "Los mensajes de error no siempre son claros, a veces incluso no aparecen cuando la app falla. Si algo sale mal te envía a una pantalla con dibujtos de dinosaurios como si eso fuese a  bajar la frustración del usuario."
             },
             {
-                nombre: "10. Ayuda y documentación", severidad: -1,
+                nombre: "10. Ayuda y documentación", severidad: 0,
                 foco: "¿La ayuda es fácil de encontrar, breve y orientada a la tarea concreta del usuario?",
-                img: null, analisis: ""
+                img: null, analisis: "Sección de Soporte robusta: FAQ, buscador, Foro, contacto directo por WhatsApp/Instagram/Facebook, siempre accesible desde el bottom nav."
             },
         ];
 
