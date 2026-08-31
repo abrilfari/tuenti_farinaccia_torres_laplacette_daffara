@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tablero — Leyes UX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Evaluación UX<small>Tablero 1 · Leyes UX</small></div>
+  <nav>
+    <a href="index.html">Índice</a>
+    <a href="leyes-ux.html" class="active">Leyes UX</a>
+    <a href="heuristicas-nielsen.html">Heurísticas</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="intro">
+    <h1>Leyes UX — Checklist de navegación</h1>
+    <p class="lede">Nombre del producto evaluado: <strong>[completar]</strong>. Recorrido analizado: <strong>[ej. onboarding → búsqueda → checkout]</strong>. No hace falta cubrir las 14: priorizá las más evidentes, mínimo sugerido 8.</p>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="filters" id="filters">
+    <button data-filter="all" class="active">Todas</button>
+    <button data-filter="cumple">Cumple</button>
+    <button data-filter="rompe">Rompe</button>
+    <button data-filter="pendiente">Pendiente</button>
+  </div>
+
+  <div class="entries" id="entries"></div>
+
+  <footer>Editá el array <code>leyes</code> en el script de esta página para cargar tu análisis real.</footer>
+</main>
+
+<script>
+// Cada objeto = una ley. status: "cumple" | "rompe" | "pendiente"
+// img: ruta a la captura (ej. "assets/screenshots-leyes/01-jakob.png") o null para dejar el placeholder.
+const leyes = [
+  { nombre:"Ley de Jakob", sub:"Consistencia con patrones conocidos", status:"pendiente",
+    pregunta:"¿La interfaz se comporta como el usuario espera, basado en otras apps que ya conoce?",
+    img:null, analisis:"" },
+  { nombre:"Ley de Fitts", sub:"Tamaño y distancia de los objetivos táctiles", status:"pendiente",
+    pregunta:"¿Los elementos clave son fáciles de alcanzar y seleccionar (tamaño, ubicación, espaciado)?",
+    img:null, analisis:"" },
+  { nombre:"Ley de Hick", sub:"Cantidad de opciones vs. tiempo de decisión", status:"pendiente",
+    pregunta:"¿La cantidad de opciones presentadas a la vez ayuda o entorpece la decisión del usuario?",
+    img:null, analisis:"" },
+  { nombre:"Ley de Miller", sub:"Límite de la memoria de trabajo (7±2)", status:"pendiente",
+    pregunta:"¿La información se agrupa en bloques manejables o satura la memoria de corto plazo?",
+    img:null, analisis:"" },
+  { nombre:"Ley de Tesler", sub:"Conservación de la complejidad", status:"pendiente",
+    pregunta:"¿La complejidad inevitable de la tarea la absorbe el sistema o se la traslada al usuario?",
+    img:null, analisis:"" },
+  { nombre:"Efecto estética-usabilidad", sub:"Diseño atractivo percibido como más usable", status:"pendiente",
+    pregunta:"¿Un diseño visualmente cuidado hace que se perciban menos problemas de usabilidad reales?",
+    img:null, analisis:"" },
+  { nombre:"Umbral de Doherty", sub:"Tiempo de respuesta del sistema", status:"pendiente",
+    pregunta:"¿El sistema responde lo suficientemente rápido (idealmente <400ms) para mantener el foco del usuario?",
+    img:null, analisis:"" },
+  { nombre:"Ley de Proximidad", sub:"Gestalt", status:"pendiente",
+    pregunta:"¿Los elementos relacionados están agrupados espacialmente para leerse como una unidad?",
+    img:null, analisis:"" },
+  { nombre:"Ley de Similitud", sub:"Gestalt", status:"pendiente",
+    pregunta:"¿Elementos con la misma función comparten color, forma o tamaño de forma consistente?",
+    img:null, analisis:"" },
+  { nombre:"Ley de Prägnanz", sub:"Simplicidad perceptual", status:"pendiente",
+    pregunta:"¿La interfaz favorece la lectura más simple posible de una forma o jerarquía?",
+    img:null, analisis:"" },
+  { nombre:"Región común", sub:"Gestalt — cercados", status:"pendiente",
+    pregunta:"¿Se usan bordes, fondos o tarjetas para indicar qué elementos pertenecen a un mismo grupo?",
+    img:null, analisis:"" },
+  { nombre:"Conectividad uniforme", sub:"Gestalt — conexión", status:"pendiente",
+    pregunta:"¿Líneas o conectores dejan claro qué elementos están vinculados entre sí?",
+    img:null, analisis:"" },
+  { nombre:"Efecto Von Restorff", sub:"El elemento distinto se recuerda más", status:"pendiente",
+    pregunta:"¿La acción principal se distingue visualmente del resto para no perderse entre las demás opciones?",
+    img:null, analisis:"" },
+  { nombre:"Efecto Zeigarnik", sub:"Las tareas incompletas se recuerdan más", status:"pendiente",
+    pregunta:"¿El sistema muestra progreso (barras, pasos) que motive a completar una tarea empezada?",
+    img:null, analisis:"" },
+];
+
+const entriesEl = document.getElementById('entries');
+const statsEl = document.getElementById('stats');
+
+function render(filter='all'){
+  entriesEl.innerHTML = '';
+  leyes.forEach((l, i) => {
+    if(filter !== 'all' && l.status !== filter) return;
+    const el = document.createElement('div');
+    el.className = 'entry';
+    el.innerHTML = `
+      <div class="index">${String(i+1).padStart(2,'0')}</div>
+      <div class="body">
+        <div class="head">
+          <div>
+            <h2>${l.nombre}</h2>
+            <div class="sub">${l.sub}</div>
+          </div>
+          <span class="tag ${l.status}">${l.status === 'pendiente' ? 'Pendiente' : (l.status === 'cumple' ? 'Cumple' : 'Rompe')}</span>
+        </div>
+        <div class="question">${l.pregunta}</div>
+        <div class="evidence">
+          <div class="shot">${l.img ? `<img src="${l.img}" alt="Captura — ${l.nombre}">` : 'Captura pendiente<br>reemplazar en el array `leyes`'}</div>
+          <div class="analysis">
+            <label>Análisis</label>
+            <p class="${l.analisis ? '' : 'fill'}">${l.analisis || 'Completar: qué se observa y por qué cumple o rompe la ley (1–2 frases).'}</p>
+          </div>
+        </div>
+      </div>`;
+    entriesEl.appendChild(el);
+  });
+}
+
+function renderStats(){
+  const total = leyes.length;
+  const cumple = leyes.filter(l=>l.status==='cumple').length;
+  const rompe = leyes.filter(l=>l.status==='rompe').length;
+  const pendiente = leyes.filter(l=>l.status==='pendiente').length;
+  statsEl.innerHTML = `
+    <div class="stat"><div class="num">${total}</div><div class="label">Leyes en checklist</div></div>
+    <div class="stat"><div class="num">${cumple}</div><div class="label">Cumplen</div></div>
+    <div class="stat"><div class="num">${rompe}</div><div class="label">Se rompen</div></div>
+    <div class="stat"><div class="num">${pendiente}</div><div class="label">Pendientes</div></div>`;
+}
+
+document.getElementById('filters').addEventListener('click', (e)=>{
+  if(e.target.tagName !== 'BUTTON') return;
+  document.querySelectorAll('#filters button').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  render(e.target.dataset.filter);
+});
+
+render();
+renderStats();
+</script>
+</body>
+</html>
