@@ -7,51 +7,50 @@
     <title>Evaluación UX — Índice</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
     <header class="topbar">
-        <h2 class="brand"> Tuenti Team</h2>
-        <div class="brand">Evaluación UX<small>Producto en análisis · Digital House / San Andrés</small></div>
-
+        <div class="brand">
+            <span class="brand-mark">Evaluación UX</span>
+            <span class="brand-tag">Tuenti</span>
+        </div>
+        <nav>
+            <a href="index.html" class="active">Índice</a>
+            <a href="leyes-ux.html">Leyes UX</a>
+            <a href="heuristica.html">Heurísticas</a>
+        </nav>
     </header>
 
     <main class="wrap">
         <div class="intro">
             <h1>Dos tableros, un mismo producto</h1>
-            <p class="lede">Auditoría de usabilidad basada en las 14 leyes UX y las 10 heurísticas de Nielsen. Reemplazá
-                los textos y capturas de marcador de posición por tu análisis real.</p>
+            <p class="lede">Auditoría de usabilidad sobre la app de Tuenti, basada en las 14 leyes UX y las 10
+                heurísticas de Nielsen. Producto evaluado: <strong>Tuenti — recarga y gestión de línea prepaga</strong>.
+            </p>
         </div>
 
-        <div class="entries" style="grid-template-columns:1fr 1fr; display:grid; gap:18px;">
-            <a href="leyes-ux.html" style="text-decoration:none; color:inherit;">
-                <div class="entry" style="grid-template-columns:1fr;">
-                    <div class="body">
-                        <div class="sub">Tablero 1</div>
-                        <h2>Leyes UX</h2>
-                        <p style="color:var(--ink-soft); font-size:.92rem; margin:8px 0 0;">14 leyes como checklist de
-                            navegación. Mínimo sugerido: 8 documentadas con evidencia real.</p>
-                    </div>
+        <div class="boards-grid">
+            <a class="board-link" href="leyes-ux.html">
+                <div class="board-card purple">
+                    <div class="eyebrow">Tablero 1</div>
+                    <h2>Leyes UX</h2>
+                    <p>14 leyes como checklist de navegación. Mínimo sugerido: 8 documentadas con evidencia real.</p>
                 </div>
             </a>
-            <a href="heuristica.html" style="text-decoration:none; color:inherit;">
-                <div class="entry" style="grid-template-columns:1fr;">
-                    <div class="body">
-                        <div class="sub">Tablero 2</div>
-                        <h2>Heurísticas de Nielsen</h2>
-                        <p style="color:var(--ink-soft); font-size:.92rem; margin:8px 0 0;">Las 10 heurísticas
-                            completas, con severidad 0–4 según la escala de Nielsen.</p>
-                    </div>
+            <a class="board-link" href="heuristica.html">
+                <div class="board-card">
+                    <div class="eyebrow">Tablero 2</div>
+                    <h2>Heurísticas de Nielsen</h2>
+                    <p>Las 10 heurísticas completas, con severidad 0–4 según la escala de Nielsen.</p>
                 </div>
             </a>
         </div>
 
-        <footer>
-            Farinaccia Laplacette Daffara Torres
-        </footer>
+        <footer class="dev-note"> Renata Daffara, Abril Farinaccia, Yazmin Laplacette, Benjamin Torres </footer>
     </main>
 </body>
 

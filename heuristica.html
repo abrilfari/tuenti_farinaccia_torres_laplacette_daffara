@@ -4,21 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablero — Heurísticas de Nielsen</title>
+    <title>Evaluación UX — Heurísticas de Nielsen</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
     <header class="topbar">
-        <div class="brand">Evaluación UX<small>Tablero 2 · Heurísticas de Nielsen</small></div>
+        <div class="brand">
+            <span class="brand-mark">Evaluación UX</span>
+            <span class="brand-tag">Tablero 2</span>
+        </div>
         <nav>
             <a href="index.html">Índice</a>
             <a href="leyes-ux.html">Leyes UX</a>
-            <a href="heuristicas-nielsen.html" class="active">Heurísticas</a>
+            <a href="heuristica.html" class="active">Heurísticas</a>
         </nav>
     </header>
 
@@ -43,8 +46,7 @@
 
         <div class="entries" id="entries"></div>
 
-        <footer>Editá el array <code>heuristicas</code> en el script de esta página para cargar tu análisis real. La
-            severidad -1 se muestra como "pendiente".</footer>
+        <footer class="dev-note"> Renata Daffara, Abril Farinaccia, Yazmin Laplacette, Benjamin Torres </footer>
     </main>
 
     <script>
@@ -53,84 +55,80 @@
             {
                 nombre: "1. Visibilidad del estado del sistema", severidad: 0,
                 foco: "¿El sistema informa qué está pasando con feedback apropiado en tiempo razonable?",
-                img: null, analisis: "El gauge de gigas, el stepper de recarga automática y la confirmación con check son claros y siempre informan al usuario dónde está y qué pasó."
+                img: "assets/IMG_9328.PNG", analisis: "El gauge de gigas, el stepper de recarga automática y la confirmación con check son claros y siempre informan al usuario dónde está y qué pasó."
             },
             {
                 nombre: "2. Correspondencia entre el sistema y el mundo real", severidad: 2,
                 foco: "¿Usa el lenguaje y las metáforas del usuario, no jerga interna del sistema?",
-                img: null, analisis: "Hola Tuenti en vez del nombre del usuario, y el Saldo $0,00 mostrado sin distinguir claramente que es independiente de los GB disponibles, puede generar confusión real. El usuario podría creer que se quedó sin servicio."
+                img: "assets/IMG_9325.PNG", analisis: "Hola Tuenti en vez del nombre del usuario, y el Saldo $0,00 mostrado sin distinguir claramente que es independiente de los GB disponibles, puede generar confusión real. El usuario podría creer que se quedó sin servicio."
             },
             {
                 nombre: "3. Control y libertad del usuario", severidad: 0,
                 foco: "¿Existen salidas de emergencia claras (deshacer, cancelar, volver atrás)?",
-                img: null, analisis: "Botones de volver consistentes, modal de roaming con X para cerrar, se puede abandonar una compra en cualquier paso."
+                img: "assets/IMG_9341.PNG", analisis: "Botones de volver consistentes, modal de roaming con X para cerrar, se puede abandonar una compra en cualquier paso."
             },
             {
                 nombre: "4. Consistencia y estándares", severidad: 3,
                 foco: "¿Sigue las convenciones de la plataforma y es consistente internamente?",
-                img: null, analisis: "Las secciones de Servicios, Combos y Soporte/Foro cambian a una interfaz tipo WebView con header, tipografía y navegación totalmente distintos al resto de la app. Esto rompe el sistema de diseño y puede hacer sentir al usuario que salió de la app."
+                img: "assets/IMG_9350.PNG", analisis: "Las secciones de Servicios, Combos y Soporte/Foro cambian a una interfaz tipo WebView con header, tipografía y navegación totalmente distintos al resto de la app. Esto rompe el sistema de diseño y puede hacer sentir al usuario que salió de la app."
             },
             {
                 nombre: "5. Prevención de errores", severidad: 0,
                 foco: "¿El diseño evita que ocurran errores, más allá de mostrar buenos mensajes?",
-                img: null, analisis: "Textos de ayuda bajo cada campo del formulario de pago, campos obligatorios marcados, checkbox de T&C requerido, rangos válidos mostrados de antemano. Aunque en el proceso de onboarding presenta errores"
+                img: "assets/IMG_9327.PNG", analisis: "Textos de ayuda bajo cada campo del formulario de pago, campos obligatorios marcados, checkbox de T&C requerido, rangos válidos mostrados de antemano. Aunque en el proceso de onboarding presenta errores"
             },
             {
                 nombre: "6. Reconocer antes que recordar", severidad: 2,
                 foco: "¿Las opciones y acciones son visibles, sin exigir que el usuario recuerde información previa?",
-                img: null, analisis: "Para un nuevo usuario puede ser confunso y rustrante nfrentarse a la app. Probablementese verá obligado a tener que recordar como se usa la app, en lugar de seguir el flujo, porque la app es poco intuitiva."
+                img: "assets/IMG_9324.PNG", analisis: "Para un nuevo usuario puede ser confunso y rustrante nfrentarse a la app. Probablementese verá obligado a tener que recordar como se usa la app, en lugar de seguir el flujo, porque la app es poco intuitiva."
             },
             {
                 nombre: "7. Flexibilidad y eficiencia de uso", severidad: 2,
                 foco: "¿Hay atajos o personalización que aceleren el uso a usuarios expertos?",
-                img: null, analisis: "Existe la recarga automática como acelerador, pero no hay atajos, favoritos ni funciones para usuarios avanzados/recurrentes. No es grave, pero es una oportunidad perdida de eficiencia."
+                img: "assets/IMG_9328.PNG", analisis: "Existe la recarga automática como acelerador, pero no hay atajos, favoritos ni funciones para usuarios avanzados/recurrentes. No es grave, pero es una oportunidad perdida de eficiencia."
             },
             {
                 nombre: "8. Diseño estético y minimalista", severidad: 1,
                 foco: "¿Se evita información irrelevante o poco usada que compita con lo importante?",
-                img: null, analisis: "El Home nativo y los flujos de compra son limpios, pero las pantallas WebView (Combos, Foro) se ven más densas y menos cuidadas que el resto — afecta la percepción visual, no la funcionalidad."
+                img: "assets/IMG_9350.PNG", analisis: "El Home nativo y los flujos de compra son limpios, pero las pantallas WebView (Combos, Foro) se ven más densas y menos cuidadas que el resto — afecta la percepción visual, no la funcionalidad."
             },
             {
                 nombre: "9. Reconocer, diagnosticar y recuperarse de errores", severidad: 2,
                 foco: "¿Los mensajes de error son claros, en lenguaje llano, e indican cómo resolver el problema?",
-                img: null, analisis: "Los mensajes de error no siempre son claros, a veces incluso no aparecen cuando la app falla. Si algo sale mal te envía a una pantalla con dibujtos de dinosaurios como si eso fuese a  bajar la frustración del usuario."
+                img: "assets/IMG_9265.PNG", analisis: "Los mensajes de error no siempre son claros, a veces incluso no aparecen cuando la app falla. Si algo sale mal te envía a una pantalla con dibujtos de dinosaurios como si eso fuese a  bajar la frustración del usuario."
             },
             {
                 nombre: "10. Ayuda y documentación", severidad: 0,
                 foco: "¿La ayuda es fácil de encontrar, breve y orientada a la tarea concreta del usuario?",
-                img: null, analisis: "Sección de Soporte robusta: FAQ, buscador, Foro, contacto directo por WhatsApp/Instagram/Facebook, siempre accesible desde el bottom nav."
+                img: "assets/IMG_9351.PNG", analisis: "Sección de Soporte robusta: FAQ, buscador, Foro, contacto directo por WhatsApp/Instagram/Facebook, siempre accesible desde el bottom nav."
             },
         ];
 
         const entriesEl = document.getElementById('entries');
         const statsEl = document.getElementById('stats');
         const sevLabel = s => s === -1 ? "Pendiente" : `Severidad ${s}`;
+        const entryClass = s => s === -1 ? 'entry-pend' : s === 0 ? 'entry-ok' : s <= 2 ? 'entry-warn' : 'entry-bad';
 
         function render(filter = 'all') {
             entriesEl.innerHTML = '';
             heuristicas.forEach((h, i) => {
                 if (filter !== 'all' && String(h.severidad) !== filter) return;
-                const sevClass = h.severidad === -1 ? '' : `sev-${h.severidad}`;
                 const el = document.createElement('div');
-                el.className = 'entry';
+                el.className = `entry ${entryClass(h.severidad)}`;
                 el.innerHTML = `
-      <div class="index">${String(i + 1).padStart(2, '0')}</div>
-      <div class="body">
-        <div class="head">
-          <div>
-            <h2>${h.nombre}</h2>
-          </div>
-          <span class="sev ${sevClass}"><span class="dot"></span>${sevLabel(h.severidad)}</span>
+      <div class="head">
+        <div>
+          <span class="num">${String(i + 1).padStart(2, '0')}</span><h2>${h.nombre}</h2>
         </div>
+        <span class="sev ${h.severidad === -1 ? 'sev-pend' : 'sev-' + h.severidad}"><span class="dot"></span>${sevLabel(h.severidad)}</span>
+      </div>
         <div class="question">${h.foco}</div>
         <div class="evidence">
-          <div class="shot">${h.img ? `<img src="${h.img}" alt="Captura — ${h.nombre}">` : 'Captura pendiente<br>reemplazar en el array `heuristicas`'}</div>
+          <div class="shot ${h.img ? 'has-img' : ''}">${h.img ? `<img src="${h.img}" alt="Captura — ${h.nombre}">` : 'Falta la captura<br>reemplazar en el array `heuristicas`'}</div>
           <div class="analysis">
-            <label>Análisis</label>
             <p class="${h.analisis ? '' : 'fill'}">${h.analisis || 'Completar: qué pasa, por qué cumple/rompe la heurística y qué impacto tiene en la persona usuaria.'}</p>
           </div>
-        </div>
-      </div>`;
+        </div>`;
                 entriesEl.appendChild(el);
             });
         }

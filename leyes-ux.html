@@ -3,14 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tablero — Leyes UX</title>
+<title>Evaluación UX — Leyes UX</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <header class="topbar">
-  <div class="brand">Evaluación UX<small>Tablero 1 · Leyes UX</small></div>
+  <div class="brand">
+    <span class="brand-mark">Evaluación UX</span>
+    <span class="brand-tag">Tablero 1</span>
+  </div>
   <nav>
     <a href="index.html">Índice</a>
     <a href="leyes-ux.html" class="active">Leyes UX</a>
@@ -34,8 +37,7 @@
   </div>
 
   <div class="entries" id="entries"></div>
-
-  <footer>Editá el array <code>leyes</code> en el script de esta página para cargar tu análisis real.</footer>
+        <footer class="dev-note"> Renata Daffara, Abril Farinaccia, Yazmin Laplacette, Benjamin Torres </footer>
 </main>
 
 <script>
@@ -44,22 +46,22 @@
 const leyes = [
   { nombre:"Ley de Jakob", sub:"Consistencia con patrones conocidos", status:"cumple",
     pregunta:"¿La interfaz se comporta como el usuario espera, basado en otras apps que ya conoce?",
-    img:null, analisis:"Tuenti utiliza patrones habituales de las aplicaciones móviles: flechas para volver, listas de opciones, iconos acompañados por texto y secciones claramente tituladas. Es decir, la aplicación sigue convenciones conocidas de navegación móvil, por lo que una persona acostumbrada a utilizar otras apps no necesita aprender patrones completamente nuevos." },
+    img:"assets/IMG_9354.PNG", analisis:"Tuenti utiliza patrones habituales de las aplicaciones móviles: flechas para volver, listas de opciones, iconos acompañados por texto y secciones claramente tituladas. Es decir, la aplicación sigue convenciones conocidas de navegación móvil, por lo que una persona acostumbrada a utilizar otras apps no necesita aprender patrones completamente nuevos." },
   { nombre:"Ley de Fitts", sub:"Tamaño y distancia de los objetivos táctiles", status:"cumple",
     pregunta:"¿Los elementos clave son fáciles de alcanzar y seleccionar (tamaño, ubicación, espaciado)?",
-    img:null, analisis:"Sí.Las acciones principales tienen áreas de interacción amplias y están ubicadas directamente en la pantalla principal. Aparecen botones grandes y fácilmente alcanzables como: Compra de Gigas y Recarga automática. Al tratarse de acciones frecuentes, su tamaño y ubicación facilitan la interacción desde un dispositivo móvil." },
+    img:"assets/IMG_9324.PNG", analisis:"Sí.Las acciones principales tienen áreas de interacción amplias y están ubicadas directamente en la pantalla principal. Aparecen botones grandes y fácilmente alcanzables como: Compra de Gigas y Recarga automática. Al tratarse de acciones frecuentes, su tamaño y ubicación facilitan la interacción desde un dispositivo móvil." },
   { nombre:"Ley de Hick", sub:"Cantidad de opciones vs. tiempo de decisión", status:"rompe",
     pregunta:"¿La cantidad de opciones presentadas a la vez ayuda o entorpece la decisión del usuario?",
-    img:null, analisis:" La cantidad de opciones disponibles puede aumentar el tiempo de decisión, especialmente cuando la persona busca una función específica dentro del perfil. En determinadas pantallas Tuenti presenta varias alternativas simultáneamente. Por ejemplo, en Perfil aparecen Información Personal, Mensajes Tuenti, Gestión de notificaciones, Condiciones de uso y Cerrar sesión." },
+    img:"assets/IMG_9354.PNG", analisis:" La cantidad de opciones disponibles puede aumentar el tiempo de decisión, especialmente cuando la persona busca una función específica dentro del perfil. En determinadas pantallas Tuenti presenta varias alternativas simultáneamente. Por ejemplo, en Perfil aparecen Información Personal, Mensajes Tuenti, Gestión de notificaciones, Condiciones de uso y Cerrar sesión." },
   { nombre:"Ley de Miller", sub:"Límite de la memoria de trabajo (7±2)", status:"rompe",
     pregunta:"¿La información se agrupa en bloques manejables o satura la memoria de corto plazo?",
-    img:null, analisis:" La información está agrupada por secciones, pero algunas pantallas contienen varios elementos que requieren ser procesados simultáneamente. Una organización aún más reducida podría disminuir la carga cognitiva." },
+    img:"assets/IMG_9362.JPEG", analisis:" La información está agrupada por secciones, pero algunas pantallas contienen varios elementos que requieren ser procesados simultáneamente. Una organización aún más reducida podría disminuir la carga cognitiva." },
   { nombre:"Ley de Tesler", sub:"Conservación de la complejidad", status:"rompe",
     pregunta:"¿La complejidad inevitable de la tarea la absorbe el sistema o se la traslada al usuario?",
-    img:null, analisis:" Parte de la complejidad de la recarga queda en manos del usuario, que debe comparar opciones, precios, cantidad de gigas y duración antes de seleccionar una alternativa." },
+    img:"assets/IMG_9332.PNG", analisis:" Parte de la complejidad de la recarga queda en manos del usuario, que debe comparar opciones, precios, cantidad de gigas y duración antes de seleccionar una alternativa." },
   { nombre:"Efecto estética-usabilidad", sub:"Diseño atractivo percibido como más usable", status:"cumple",
     pregunta:"¿Un diseño visualmente cuidado hace que se perciban menos problemas de usabilidad reales?",
-    img:null, analisis:" La estética cuidada y consistente de Tuenti favorece la percepción de una experiencia simple y ordenada, aunque esto no garantiza que todos los flujos sean igualmente fáciles." },
+    img:"assets/IMG_9325.PNG", analisis:" La estética cuidada y consistente de Tuenti favorece la percepción de una experiencia simple y ordenada, aunque esto no garantiza que todos los flujos sean igualmente fáciles." },
   { nombre:"Umbral de Doherty", sub:"Tiempo de respuesta del sistema", status:"pendiente",
     pregunta:"¿El sistema responde lo suficientemente rápido (idealmente <400ms) para mantener el foco del usuario?",
     img:null, analisis:"" },
@@ -80,7 +82,7 @@ const leyes = [
     img:null, analisis:"" },
   { nombre:"Efecto Von Restorff", sub:"El elemento distinto se recuerda más", status:"cumple",
     pregunta:"¿La acción principal se distingue visualmente del resto para no perderse entre las demás opciones?",
-    img:null, analisis:" La acción principal del banner se diferencia mediante contraste de color, tamaño y ubicación, por lo que atrae rápidamente la atención de la persona usuaria." },
+    img:"assets/IMG_9325.PNG", analisis:" La acción principal del banner se diferencia mediante contraste de color, tamaño y ubicación, por lo que atrae rápidamente la atención de la persona usuaria." },
   { nombre:"Efecto Zeigarnik", sub:"Las tareas incompletas se recuerdan más", status:"pendiente",
     pregunta:"¿El sistema muestra progreso (barras, pasos) que motive a completar una tarea empezada?",
     img:null, analisis:"" },
@@ -94,24 +96,20 @@ function render(filter='all'){
   leyes.forEach((l, i) => {
     if(filter !== 'all' && l.status !== filter) return;
     const el = document.createElement('div');
-    el.className = 'entry';
+    el.className = `entry ${l.status}`;
     el.innerHTML = `
-      <div class="index">${String(i+1).padStart(2,'0')}</div>
-      <div class="body">
-        <div class="head">
-          <div>
-            <h2>${l.nombre}</h2>
-            <div class="sub">${l.sub}</div>
-          </div>
-          <span class="tag ${l.status}">${l.status === 'pendiente' ? 'Pendiente' : (l.status === 'cumple' ? 'Cumple' : 'Rompe')}</span>
+      <div class="head">
+        <div>
+          <span class="num">${String(i+1).padStart(2,'0')}</span><h2>${l.nombre}</h2>
+          <div class="sub">${l.sub}</div>
         </div>
-        <div class="question">${l.pregunta}</div>
-        <div class="evidence">
-          <div class="shot">${l.img ? `<img src="${l.img}" alt="Captura — ${l.nombre}">` : 'Captura pendiente<br>reemplazar en el array `leyes`'}</div>
-          <div class="analysis">
-            <label>Análisis</label>
-            <p class="${l.analisis ? '' : 'fill'}">${l.analisis || 'Completar: qué se observa y por qué cumple o rompe la ley (1–2 frases).'}</p>
-          </div>
+        <span class="tag ${l.status}">${l.status === 'pendiente' ? 'Pendiente' : (l.status === 'cumple' ? 'Cumple' : 'Rompe')}</span>
+      </div>
+      <div class="question">${l.pregunta}</div>
+      <div class="evidence">
+        <div class="shot ${l.img ? 'has-img' : ''}">${l.img ? `<img src="${l.img}" alt="Captura — ${l.nombre}">` : 'Falta la captura<br>reemplazar en el array `leyes`'}</div>
+        <div class="analysis">
+          <p class="${l.analisis ? '' : 'fill'}">${l.analisis || 'Completar: qué se observa y por qué cumple o rompe la ley (1–2 frases).'}</p>
         </div>
       </div>`;
     entriesEl.appendChild(el);
